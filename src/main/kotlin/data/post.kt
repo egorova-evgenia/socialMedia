@@ -1,7 +1,5 @@
 package data
 import java.time.LocalDateTime
-import java.util.*
-
 
 data class Post (
     val id: Int=-1,
@@ -28,5 +26,32 @@ data class Post (
     val marked_as_ads: Boolean= true,
     val is_favorite: Boolean= true,
     val donut: Donut=Donut(),
-    val postponed_id: LocalDateTime =LocalDateTime.of(2035, 1, 1, 16, 0,0)
+    val postponed_id: LocalDateTime =LocalDateTime.of(2035, 1, 1, 16, 0,0),
+    var attachment: Array<Attachments> = emptyArray()
 )
+{
+    private fun getNextAttachId(): Int {
+        return attachment.size
+    }
+    fun addAttachment(addAtt: Attachments): Boolean {
+    if (addAtt!=null) {
+        addAtt.id=getNextAttachId()
+        attachment += addAtt
+        return true
+    }
+        return false
+    }
+
+    fun showAttachment() {
+        attachment.forEachIndexed() { index, attach ->
+            when (attach) {
+                // Здесь должны быть способы вывода на экран
+                is Attachments.AttachPhoto -> "Фотка"
+                is Attachments.AttachVideo -> "видео"
+                is Attachments.AttachAudio -> "аудио"
+                is Attachments.AttachLink -> "ссылка"
+                is Attachments.AttachPoll -> "Опрос"
+            }
+        }
+    }
+}
