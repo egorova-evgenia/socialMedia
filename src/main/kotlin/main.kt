@@ -1,6 +1,6 @@
 import data.Post
+import data.Attachments
 import service.WallService
-import kotlin.coroutines.coroutineContext
 
 fun main() {
 
@@ -9,6 +9,7 @@ fun main() {
     authorName = "Mary",
     content = "первая запись"
     )
+
     val post2 = Post(
         authorName = "Mary",
         content = "вторая запись"
@@ -17,6 +18,10 @@ fun main() {
         authorName = "Sarah",
         content = "третья запись"
     )
+
+    var link1= Attachments.AttachLink (url="Ссылка")
+    post2.addAttachment(link1)
+//    println(post2)
 
     WallService.add(post1)
     WallService.add(post2)

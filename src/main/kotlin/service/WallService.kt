@@ -47,7 +47,7 @@ object WallService {
 
     fun shortToString2(): Boolean {
         posts.forEachIndexed { index, post ->
-            println(posts[index].authorName + "  " + posts[index].content + "  " + posts[index].id)
+            println(posts[index].authorName + "  " + posts[index].content + "  " + posts[index].id+"  "+ posts[index].attachment)
         }
         return false
     }
