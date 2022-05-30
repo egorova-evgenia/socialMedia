@@ -14,9 +14,8 @@ class MainKtTest {
         )
 
 //        act
-        val result = (WallService.add(testPost1).id!=testPost1.id)
 //        assert
-        assertEquals(true,result)
+        assertTrue(WallService.add(testPost1).id!=testPost1.id)
     }
 
     @Test
@@ -35,7 +34,7 @@ class MainKtTest {
         WallService.add(testPost1)
         val result = WallService.update(testPost2)
 //        assert
-        assertEquals(true,result)
+        assertTrue(result)
     }
 
     @Test
@@ -54,7 +53,7 @@ class MainKtTest {
         WallService.add(testPost1)
         val result = WallService.update(testPost2)
 //        assert
-        assertEquals(false,result)
+        assertFalse(result)
     }
 
 }
