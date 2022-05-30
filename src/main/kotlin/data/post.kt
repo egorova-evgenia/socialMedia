@@ -42,16 +42,4 @@ data class Post (
         return false
     }
 
-    fun showAttachment() {
-        attachment.forEachIndexed() { index, attach ->
-            when (attach) {
-                // Здесь должны быть способы вывода на экран
-                is Attachments.AttachPhoto -> "Фотка"
-                is Attachments.AttachVideo -> "видео"
-                is Attachments.AttachAudio -> "аудио"
-                is Attachments.AttachLink -> "ссылка"
-                is Attachments.AttachPoll -> "Опрос"
-            }
-        }
-    }
 }

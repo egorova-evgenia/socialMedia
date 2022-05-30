@@ -15,7 +15,7 @@ class MainKtTest {
 
 //        act
 //        assert
-        assertTrue(WallService.add(testPost1).id!=testPost1.id)
+        assertTrue(WallService.add(testPost1).id != testPost1.id)
     }
 
     @Test
@@ -26,7 +26,7 @@ class MainKtTest {
             content = "запись"
         )
         val testPost2 = Post(
-            id=0,
+            id = 0,
             authorName = "Mary",
             content = "edited"
         )
@@ -45,7 +45,7 @@ class MainKtTest {
             content = "запись"
         )
         val testPost2 = Post(
-            id=5,
+            id = 5,
             authorName = "Mary",
             content = "edited"
         )
@@ -54,6 +54,18 @@ class MainKtTest {
         val result = WallService.update(testPost2)
 //        assert
         assertFalse(result)
+    }
+
+    @Test
+    fun addAttachmentTest() {
+//        arrange
+        val testPost1 = Post(
+            authorName = "Kate",
+            content = "запись"
+        )
+        val link1 = AttachLink(url = "Ссылка")
+//      act, assert
+        assertTrue(testPost1.addAttachment(link1))
     }
 
 }

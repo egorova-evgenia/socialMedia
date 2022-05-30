@@ -19,9 +19,12 @@ fun main() {
         content = "третья запись"
     )
 
-    var link1= Attachments.AttachLink (url="Ссылка")
+    val link1 = AttachLink(url = "Ссылка")
+    val photo1=AttachPhoto()
+    post2.addAttachment(photo1)
     post2.addAttachment(link1)
-//    println(post2)
+    println(post2)
+
 
     WallService.add(post1)
     WallService.add(post2)
@@ -31,10 +34,10 @@ fun main() {
     val postNew3 = post3.copy(authorName = "Mary",id=5,content = "edited")
 
 
-    WallService.removeById(1)
+//    WallService.removeById(1)
 
 //    println(postNew3.id)
-    println(WallService.update(postNew3))
+//    println(WallService.update(postNew3))
 //    WallService.shortToString2()
 
 }
