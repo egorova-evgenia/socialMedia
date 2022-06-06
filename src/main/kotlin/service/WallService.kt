@@ -1,5 +1,6 @@
 package service
 
+import data.OneComment
 import data.Post
 
 object WallService {
@@ -51,4 +52,19 @@ object WallService {
         }
         return false
     }
+
+    
+
+    fun createComment(id: Int, comment: OneComment){
+        posts.forEachIndexed { index, post ->
+            if (id == post.id) {
+                var comments: Array<OneComment> = emptyArray(),
+                posts[index] = posts[index].copy(id = -id)
+                return true
+            }
+        }
+        return false
+    }
+
+
 }

@@ -12,7 +12,7 @@ data class Post (
     val reply_owner_id: Int =1,
     val reply_post_id: Int =1,
     val friends_only: Boolean=false,
-    val comments: Comments = Comments(0),
+//    var comments: Array<OneComment> = emptyArray(),
 //    val copyright: Object,
     val likes: Int = 0,
     val views: Int = 0,// ?
