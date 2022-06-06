@@ -1,5 +1,4 @@
-import data.Post
-import data.Attachments
+import data.*
 import service.WallService
 
 fun main() {
@@ -19,8 +18,8 @@ fun main() {
         content = "третья запись"
     )
 
-    val link1 = AttachLink(url = "Ссылка")
-    val photo1=AttachPhoto()
+    val link1 = LinkAttachment(link= Link(url = "Ссылка"))
+    val photo1=PhotoAttachment()
     post2.addAttachment(photo1)
     post2.addAttachment(link1)
     println(post2)

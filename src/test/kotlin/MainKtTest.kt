@@ -1,3 +1,5 @@
+import data.Link
+import data.LinkAttachment
 import data.Post
 import org.junit.Test
 import org.junit.Assert.*
@@ -63,9 +65,8 @@ class MainKtTest {
             authorName = "Kate",
             content = "запись"
         )
-        val link1 = AttachLink(url = "Ссылка")
+        val link1 = LinkAttachment(link= Link(url = "Ссылка2"))
 //      act, assert
         assertTrue(testPost1.addAttachment(link1))
     }
-
 }
