@@ -1,5 +1,6 @@
 import data.Post
-import data.Attachments
+//import data.Attachments
+import data.*
 import service.WallService
 
 fun main() {
@@ -19,7 +20,7 @@ fun main() {
         content = "третья запись"
     )
 
-    var link1= Attachments.AttachLink (url="Ссылка")
+    var link1= Attachments.AttachLink (Link(url="Ссылка"))
     post2.addAttachment(link1)
 //    println(post2)
 
