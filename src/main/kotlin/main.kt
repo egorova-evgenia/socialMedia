@@ -34,7 +34,7 @@ fun main() {
 
     WallService.removeById(1)
 //    println(WallService.createComment(1, OneComment(text="text")))
-    println(WallService.createComment(5, OneComment(text="text")))
+    println(WallService.createComment(2, OneComment()))
 
 //    println(postNew3.id)
 //    println(WallService.update(postNew3))

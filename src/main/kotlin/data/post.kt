@@ -1,4 +1,5 @@
 package data
+import service.TextNotFoundException
 import java.time.LocalDateTime
 
 data class Post (
@@ -47,7 +48,7 @@ data class Post (
             comments += comment.copy(idComment =newId)
             return true
         }
-        return false //если текст пустой
+        return throw TextNotFoundException("Текст комментария пуст") //если текст пустой
     }
 
     fun showAttachment() {

@@ -59,8 +59,8 @@ object WallService {
         posts.forEachIndexed { index, post ->
             if (id == post.id) {
                 var comments: Array<OneComment> = emptyArray()
-                posts[index].addNewComment(comment)
-                return true
+
+                return posts[index].addNewComment(comment)
             }
         }
         return throw PostNotFoundException("пост с идентификатором $id не найден")
