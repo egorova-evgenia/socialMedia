@@ -4,6 +4,7 @@ import data.Post
 import org.junit.Test
 import org.junit.Assert.*
 import service.PostNotFoundException
+import service.TextNotFoundException
 import service.WallService
 
 class MainKtTest {
@@ -84,5 +85,14 @@ class MainKtTest {
     @Test (expected = PostNotFoundException::class)
     fun shouldThrowTest() {
         assert(WallService.createComment(5, OneComment(text="text")))
+    }
+
+    @Test(expected = TextNotFoundException::class)
+    fun shouldTextThrowTest() {
+        //        arrange
+        val testPost1 = Post(authorName = "Kate", content = "запись")
+//        act
+        WallService.add(testPost1)
+        assert(WallService.createComment(0, OneComment()))
     }
 }
