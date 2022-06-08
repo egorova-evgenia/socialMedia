@@ -1,5 +1,6 @@
 import data.Post
 import data.Attachments
+import data.OneComment
 import service.WallService
 
 fun main() {
@@ -32,9 +33,11 @@ fun main() {
 
 
     WallService.removeById(1)
+//    println(WallService.createComment(1, OneComment(text="text")))
+    println(WallService.createComment(5, OneComment(text="text")))
 
 //    println(postNew3.id)
-    println(WallService.update(postNew3))
+//    println(WallService.update(postNew3))
 //    WallService.shortToString2()
 
 }

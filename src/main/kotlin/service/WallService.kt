@@ -55,15 +55,15 @@ object WallService {
 
     
 
-    fun createComment(id: Int, comment: OneComment){
+    fun createComment(id: Int, comment: OneComment):Boolean{
         posts.forEachIndexed { index, post ->
             if (id == post.id) {
-                var comments: Array<OneComment> = emptyArray(),
-                posts[index] = posts[index].copy(id = -id)
+                var comments: Array<OneComment> = emptyArray()
+                posts[index].addNewComment(comment)
                 return true
             }
         }
-        return false
+        return throw PostNotFoundException("пост с идентификатором $id не найден")
     }
 
 

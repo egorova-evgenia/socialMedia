@@ -1,6 +1,9 @@
+import data.Comments
+import data.OneComment
 import data.Post
 import org.junit.Test
 import org.junit.Assert.*
+import service.PostNotFoundException
 import service.WallService
 
 class MainKtTest {
@@ -56,4 +59,30 @@ class MainKtTest {
         assertFalse(result)
     }
 
+
+    @Test
+    fun commentTest() {
+//        arrange
+        val testPost1 = Post(
+            authorName = "Kate",
+            content = "запись"
+        )
+        val testPost2 = Post(
+            id=5,
+            authorName = "Mary",
+            content = "edited"
+        )
+//        act
+        WallService.add(testPost1)
+        WallService.add(testPost2)
+
+        val result = WallService.createComment(id = 1, OneComment(text="comment"))
+//        assert
+        assertTrue(result)
+    }
+
+    @Test (expected = PostNotFoundException::class)
+    fun shouldThrowTest() {
+        assert(WallService.createComment(5, OneComment(text="text")))
+    }
 }
