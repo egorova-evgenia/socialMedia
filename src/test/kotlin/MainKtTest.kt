@@ -84,15 +84,14 @@ class MainKtTest {
 
     @Test (expected = PostNotFoundException::class)
     fun shouldThrowTest() {
-        assert(WallService.createComment(5, OneComment(text="text")))
+            WallService.createComment(5, OneComment(text = "text"))
     }
 
     @Test(expected = TextNotFoundException::class)
     fun shouldTextThrowTest() {
         //        arrange
         val testPost1 = Post(authorName = "Kate", content = "запись")
-//        act
         WallService.add(testPost1)
-        assert(WallService.createComment(0, OneComment()))
+        WallService.createComment(0, OneComment())
     }
 }

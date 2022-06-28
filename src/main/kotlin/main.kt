@@ -7,8 +7,8 @@ fun main() {
 
 //    Создадим несколько постов
     val post1 = Post(
-    authorName = "Mary",
-    content = "первая запись"
+        authorName = "Mary",
+        content = "первая запись"
     )
 
     val post2 = Post(
@@ -20,7 +20,7 @@ fun main() {
         content = "третья запись"
     )
 
-    var link1= Attachments.AttachLink (url="Ссылка")
+    var link1 = Attachments.AttachLink(url = "Ссылка")
     post2.addAttachment(link1)
 //    println(post2)
 
@@ -29,15 +29,19 @@ fun main() {
     WallService.add(post3)
 
 //    WallService.shortToString()
-    val postNew3 = post3.copy(authorName = "Mary",id=5,content = "edited")
+    val postNew3 = post3.copy(authorName = "Mary", id = 5, content = "edited")
 
 
-    WallService.removeById(1)
-//    println(WallService.createComment(1, OneComment(text="text")))
-    println(WallService.createComment(2, OneComment()))
+//    WallService.removeById(1)
+//    println(WallService.createComment(1, OneComment()))
+    println(WallService.createComment(2, OneComment(text = "text")))
+    println(WallService.createComment(2, OneComment(text = "text2")))
+//    WallService.add(post1)
+    println(WallService.howMuchComments(2))
 
-//    println(postNew3.id)
+
 //    println(WallService.update(postNew3))
-//    WallService.shortToString2()
+
+    WallService.shortToString2()
 
 }

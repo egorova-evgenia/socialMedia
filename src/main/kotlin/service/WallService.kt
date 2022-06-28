@@ -48,22 +48,28 @@ object WallService {
 
     fun shortToString2(): Boolean {
         posts.forEachIndexed { index, post ->
-            println(posts[index].authorName + "  " + posts[index].content + "  " + posts[index].id+"  "+ posts[index].attachment)
+            println(posts[index].authorName + "  " + posts[index].content + "  " + posts[index].id + "  " + posts[index].attachment + posts[index].comments)
         }
         return false
     }
 
-    
 
-    fun createComment(id: Int, comment: OneComment):Boolean{
+    fun createComment(id: Int, comment: OneComment): Boolean {
         posts.forEachIndexed { index, post ->
             if (id == post.id) {
-                var comments: Array<OneComment> = emptyArray()
-
                 return posts[index].addNewComment(comment)
             }
         }
-        return throw PostNotFoundException("пост с идентификатором $id не найден")
+        throw PostNotFoundException("пост с идентификатором $id не найден")
+    }
+
+    fun howMuchComments(id: Int): Int {
+        posts.forEachIndexed { index, post ->
+            if (id == post.id) {
+                return posts[index].comments.size
+            }
+        }
+        return 0
     }
 
 

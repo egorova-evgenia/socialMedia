@@ -43,12 +43,12 @@ data class Post (
         return false
     }
     fun addNewComment(comment: OneComment): Boolean {
-        if (comment.text!=null) {
-            val newId=comments.size
-            comments += comment.copy(idComment =newId)
+        if (comment.text != null) {
+            val newId = comments.size
+            comments += comment.copy(idComment = newId)
             return true
         }
-        return throw TextNotFoundException("Текст комментария пуст") //если текст пустой
+        throw TextNotFoundException("Текст комментария пуст") //если текст пустой
     }
 
     fun showAttachment() {
