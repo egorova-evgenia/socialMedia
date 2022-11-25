@@ -1,5 +1,8 @@
 plugins {
+    id 'java'
+    id 'jacoco'
     id 'org.jetbrains.kotlin.jvm' version '1.5.10'
+
 }
 
 group 'org.example'
@@ -11,5 +14,5 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
-    implementation 'junit:junit:4.13.1'
+    implementation 'junit:junit:4.13.2'
 }

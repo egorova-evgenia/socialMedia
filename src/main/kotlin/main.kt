@@ -1,23 +1,18 @@
-import data.Post
-import data.Attachments
+import data.Comment
 import data.Note
-import data.OneComment
-import org.junit.Assert
-import service.NoteWork
-import service.WallService
-import service.*
+import services.NoteService
 
 fun main() {
 //    Создадим несколько постов
-    val post1 = Post(
-        author = "Mary", text = "первая запись"
-    )
-
-    val post2 = Post(author = "Mary", text = "вторая запись")
-    val post3 = Post(
-        author = "Sarah",
-        text = "третья запись"
-    )
+//    val post1 = Post(
+//        author = "Mary", text = "первая запись"
+//    )
+//
+//    val post2 = Post(author = "Mary", text = "вторая запись")
+//    val post3 = Post(
+//        author = "Sarah",
+//        text = "третья запись"
+//    )
 
 //    var link1 = Attachments.AttachLink(url = "Ссылка")
 //    post2.addAttachment(link1)
@@ -44,15 +39,25 @@ fun main() {
 ////    WallService.shortToString2()
 
     //        arrange
-    val note1 = Note(text = "запись", author = "Kate")
-    val note2 = Note(text = "txt2")
-    val note3 = Note(text = "txt2")
-    println(NoteWork.add(note1))
-    println(NoteWork.add(note2))
-    println(NoteWork.add(note3))
-    println(NoteWork.shortToString())
-    println(NoteWork.add(note1).id != note1.id)
+    val note1 = Note(content = "запись", authorName = "Kate")
+    val note2 = Note(content = "txt2")
+    val note3 = Note(content = "txt2")
+    val comm = Comment(text = "not null")
+    NoteService.add(note1)
+    NoteService.add(note2)
+    NoteService.add(note3)
+    NoteService.createComment(1, comm)
+    NoteService.createComment(1, Comment(text = "like"))
+    NoteService.removeById(2)
+    NoteService.show()
+    NoteService.comeBackById(2)
+    NoteService.show()
+    println(NoteService.getCommentsById(1).toString())
+
+//    println(NoteWork.shortToString())
+//    println(NoteWork.add(note1).id != note1.id)
 //    Assert.assertTrue()
 
 
 }
+
