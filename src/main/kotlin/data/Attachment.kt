@@ -1,21 +1,21 @@
 package data
 
-sealed class Attachments(
+sealed class Attachment(
     val type: String,
     var id: Int = -1,
-    val pieceOfMemoryError: Any?=null
+    val pieceOfMemoryError: Any? = null
 ) {
     class AttachPhoto(
         val album_id: Int = 1,
         val owner_id: Int = 1,
         val user_id: Int = 1
-    ) : Attachments(type = "Photo")
+    ) : Attachment(type = "Photo")
 
     class AttachVideo(
         val album_id: Int = 1,
         val owner_id: Int = 1,
         val user_id: Int = 1
-    ) : Attachments(type = "Video")
+    ) : Attachment(type = "Video")
 
     class AttachAudio(
         val album_id: Int = 1,
@@ -23,19 +23,19 @@ sealed class Attachments(
         val user_id: Int = 1,
         val title: String? = null,
         val autor: String? = null
-    ) : Attachments(type = "Audio")
+    ) : Attachment(type = "Audio")
 
     class AttachLink(
         val url: String = "url",
         val autor: String? = null
-    ) : Attachments(type = "Link")
+    ) : Attachment(type = "Link")
 
     class AttachPoll(
         val question: String = "?",
         val anonimus: Boolean = false,
         val votes: Int = 0,
         val answers: Array<Answer> = emptyArray()
-    ) : Attachments(type = "Poll")
+    ) : Attachment(type = "Poll")
 }
 
 class Answer(
