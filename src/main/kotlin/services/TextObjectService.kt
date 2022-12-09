@@ -44,7 +44,7 @@ interface TextObjectService<T : TextObject> {
 
     fun createComment(id: Int, comment: Comment): Boolean {
         txtObjList.forEachIndexed { index, obj ->
-            if (id == obj.id) {
+            if ((id == obj.id) && !obj.isRemouved) {
                 txtObjList[index].addNewComment(comment)
                 return true
             }
@@ -54,7 +54,7 @@ interface TextObjectService<T : TextObject> {
 
     fun howMuchComments(id: Int): Int {
         txtObjList.forEachIndexed { index, obj ->
-            if (id == obj.id) {
+            if ((id == obj.id) && !obj.isRemouved) {
                 return txtObjList[index].howMuchComments()
             }
         }
@@ -63,7 +63,7 @@ interface TextObjectService<T : TextObject> {
 
     fun getTextObjectById(id: Int): T {
         txtObjList.forEach { obj ->
-            if (id == obj.id) {
+            if ((id == obj.id) && !obj.isRemouved) {
                 return obj
             }
         }
@@ -72,7 +72,7 @@ interface TextObjectService<T : TextObject> {
 
     fun getCommentsById(id: Int): Array<Comment> {
         txtObjList.forEach { obj ->
-            if (id == obj.id) {
+            if ((id == obj.id) && !obj.isRemouved) {
                 return obj.comments
             }
         }
