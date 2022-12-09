@@ -1,3 +1,4 @@
+import chats.Chat
 import data.chats.ChatService
 import data.chats.ChatService.getUnreadByUser
 import data.chats.ChatService.getUnreadChatsCount
@@ -5,6 +6,7 @@ import data.chats.ChatService.read
 import data.chats.ChatService.receiveMessage
 import data.chats.ChatService.writeMessage
 import data.chats.Message
+import data.chats.MessageType
 import data.chats.User
 import org.junit.Test
 import org.junit.Assert.*
@@ -60,5 +62,14 @@ class MainKtChatTest {
         ChatService.chatList.getUnreadByUser(mary)
     }
 
+    @Test
+    fun removeMsgTest() {
+        val msg = Message()
+        val msg2 = Message(text = "new message")
+        val chat = Chat()
+        chat.receiveMessage(msg)
+        chat.receiveMessage(msg2)
+        assertTrue(chat.removeMessageByM(msg2.copy(messageType = MessageType.RECIBIDO)))
+    }
 
 }
